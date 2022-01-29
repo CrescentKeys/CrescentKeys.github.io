@@ -1,0 +1,368 @@
+/* === GOOGLE FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
+
+/* ==== VARIABLES CSS ===*/
+:root{
+    --header-height: 3rem;
+
+/* === COLOS === */
+    --first-color:         #1b1b1b;
+    --first-color-dark:    #1b1b1b;
+    --first-color-darken:  #BBA14F;
+    --first-color-hover:   #A48111;
+    --white-color:         #f5fefd;
+
+
+
+/* === FONT AND TYPOGRAPHY === */
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2.5rem;
+    --normal-font-size: .938rem;
+
+/* === Z-INDEX === */
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --big-font-size: 5rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+
+/* === BASE === */
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+
+}
+
+h1,p,ul{
+    margin: 0;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* === LAYOUT */
+
+.bd-grid{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+
+.l-header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    z-index: var(--z-fixed);
+    background-color: var(--first-color);
+ }
+
+/* === NAV === */
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 768px){
+    .nav__menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        padding: 3.5rem 1.5rem 0;
+        background: rgba(27, 27, 27, .3);
+        backdrop-filter: blur(10px);
+        transition: .5s;
+        font-size: 25px;
+    }
+    
+}
+
+.nav__close{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav__item{
+    margin-bottom: 2rem;
+}
+
+.nav__close, .nav__link, .nav__logo, .nav__toggle{
+    color: var(--first-color-hover);
+}
+
+.nav__link:hover{
+    color: var(--first-color-darken);
+}
+
+.nav__toggle{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* === SHOW MENU === */
+.show{
+    right: 0;
+}
+
+.home{
+    background-color: var(--first-color);
+    overflow: hidden;   
+}
+
+.home__container{
+    height: calc(5vh - var(--header-height));
+    grid-template-rows: repeat(2, max-content);
+    row-gap: 1.5rem;
+}
+
+
+
+/* === MEDIA QUERIES === */
+@media screen and (min-width: 768px){
+    body{
+        margin: 0;
+    }
+    .nav{
+        height: calc(var(--header-height) + 1.5rem);
+    }
+
+    .nav__toggle, .nav__close{
+        display: none;
+    }
+
+    .nav__list{
+        display: flex;
+    }
+
+    .nav__item{
+        margin-left: 3rem;
+        margin-bottom: 0;
+    }
+
+    .home__container{
+        height: 10vh;
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows: 1fr;
+        row-gap: 0;
+        align-items: center;
+        justify-content: center;
+     }
+
+}
+
+@media screen and (min-width: 1024px){
+    .bd-grid{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home__container{
+        justify-content: initial;
+        column-gap: 4.5rem;
+    }
+
+}
+
+/* === MEDIA QUERIES === */
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+    background: #1b1b1b;
+
+}
+
+section::before{
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+section::after{
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+
+/* === CONTACT FORM === */
+
+.container{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+    padding: 50px;
+    background: rgba(27, 27, 27, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid (27, 27, 27, 0.25);
+    border-right: 1px solid rgba(27, 27, 27, 0.1);
+    border-bottom: 1px solid rgba(27, 27, 27, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(25px);
+
+}
+
+.container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 27, 27, 0.1);
+    pointer-events: none;
+    transform: skewX(-15deg);
+}
+
+.container h2{
+    width:  100%;
+    text-align: center;
+    color: #f5fefd;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.container .row100{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+
+.container .row100 .col{
+    position: relative;
+    width: 100;
+    padding: 0 10px;
+    margin: 30px 0 20px;
+}
+
+.container .row100 .col .inputBox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #f5fefd;
+}
+.container .row100 .col .inputBox input,
+.container .row100 .col .inputBox textarea{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+
+.container .row100 .col .inputBox .text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.container .row100 .col .inputBox input:focus + .text,
+.container .row100 .col .inputBox input:valid + .text,
+.container .row100 .col .inputBox textarea:focus + .text,
+.container .row100 .col .inputBox textarea:valid + .text
+{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .col .inputBox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #f5fefd;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .col .inputBox input:focus ~ .line,
+.container .row100 .col .inputBox input:valid ~ .line
+{
+    height: 100%;
+}
+
+.container .row100 .col .inputBox.textarea{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+
+
+.container .row100 .col .inputBox textarea:focus ~ .line,
+.container .row100 .col .inputBox textarea:valid ~ .line
+{
+    height: 100%;
+}
+
+.container .row100 .col input[type="submit"]
+{
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+    outline: none;
+    background: #f5fefd;
+    color: #1b1b1b;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
