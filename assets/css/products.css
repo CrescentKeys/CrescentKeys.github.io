@@ -219,7 +219,7 @@ body{
     align-items: center;
     display: flex;
     flex-wrap: flex;
-
+    color: var(--white-color);
     
 }
 
